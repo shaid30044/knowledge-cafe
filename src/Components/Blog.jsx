@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({ blog, handleAddToBookmarks }) => {
+const Blog = ({ blog, handleAddToBookmarks, handleMarkAsRead }) => {
   const {
     cover,
     author_img,
@@ -30,7 +30,7 @@ const Blog = ({ blog, handleAddToBookmarks }) => {
           </p>
           <button
             onClick={() => handleAddToBookmarks(blog)}
-            className="color-2"
+            className="btn btn-ghost hover:bg-white color-2 px-0"
           >
             <FaBookmark></FaBookmark>
           </button>
@@ -39,14 +39,17 @@ const Blog = ({ blog, handleAddToBookmarks }) => {
       <h1 className="text-3xl lg:text-4xl font-bold color-1 lg:leading-[50px]">
         {title}
       </h1>
-      <p className="flex text-lg lg:text-xl font-medium color-2 gap-4 pt-4 pb-5">
+      <p className="flex text-lg lg:text-xl font-medium color-2 gap-4 pt-4 pb-2">
         {hashtags.map((hashtags, idx) => (
           <span key={idx}>
             <a href="">#{hashtags}</a>
           </span>
         ))}
       </p>
-      <button className="text-lg lg:text-xl font-semibold color-3 underline pb-8 mb-10">
+      <button
+        onClick={() => handleMarkAsRead(reading_time)}
+        className="btn btn-ghost hover:bg-white normal-case text-lg lg:text-xl font-semibold color-3 underline pl-0 mb-10"
+      >
         Mark as read
       </button>
     </div>
@@ -56,6 +59,7 @@ const Blog = ({ blog, handleAddToBookmarks }) => {
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
   handleAddToBookmarks: PropTypes.func.isRequired,
+  handleMarkAsRead: PropTypes.func.isRequired,
 };
 
 export default Blog;
