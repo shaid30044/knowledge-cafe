@@ -1,11 +1,11 @@
-import "./MyCss.css";
-
 const Header = () => {
   return (
     <div className="navbar border-b-2 border-[#11111126] px-0 py-5 mb-8">
       <div className="flex-1">
         <button>
-          <a className="exo-2 text-4xl font-bold color-1">Knowledge Cafe</a>
+          <a className="exo-2 text-2xl lg:text-4xl font-bold color-1">
+            Knowledge Cafe
+          </a>
         </button>
       </div>
       <div className="flex-none">
